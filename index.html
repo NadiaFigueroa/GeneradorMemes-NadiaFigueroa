@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aplicacion para crear, editar y descargar memes.">
+  <meta name="keywords" content="editor, crear memes, meme, diversion">
+  <meta name="author" content="Nadia Figueroa">
+  <meta property="og:title" content="Generador de Memes">
+  <meta property="og:description" content="Aplicacion para crear, editar y descargar memes.">
+  <meta property="og:type" content="article">
+  <meta property="og:site name" content="Generador de Memes">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/kenarose" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Hachi+Maru+Pop&family=Hanalei&family=Londrina+Solid:wght@100&family=Pacifico&family=Permanent+Marker&family=Potta+One&family=Shadows+Into+Light&family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/aside.css">
+  <link rel="stylesheet" href="./css/seccionEditar.css">
+  <link rel="favicon icon" href="./img/troll-face_opt.png">
+  <script src="https://kit.fontawesome.com/55eea74df4.js" crossorigin="anonymous"></script>
+  <title>Editor de memes</title>
+</head>
+
+<body>
+  <header class="header__Container">
+    <h1>Generador de Memes</h1>
+  <div class="panel__buttons">
+    <button class="button" id="image-button" aria-label="Editor Imagen"><i class="far fa-file-image button-icon-text" aria-hidden="true"></i>Imagen</button>
+    <button class="button" id="text-button" aria-label="Editor Texto"><i class="fas fa-font button-icon-text" aria-hidden="true"></i>Texto</button>
+    <button class="button light-button" id="light-button" aria-label="Cambiar a Modo Oscuro"><i class="far fa-sun button-icon-text" aria-hidden="true"></i>Modo Claro</button>
+    <button class="button dark-button display-none" id="dark-button" aria-label="Cambiar a Modo Claro"><i class="far fa-moon button-icon-text" aria-hidden="true"></i>Modo Oscuro</button>
+  </div>
+  </header>
+  <main class="Container_seccions">
+  <section class="section1__meme">
+    <article id="meme-container" class="meme-container">
+    <p id="top-text" class="text-image">TEXTO SUPERIOR</p>
+    <div id="meme-image" class="meme-image" aria-label="Imagen de meme"></div>
+    <p id="bottom-text" class="text-image">TEXTO INFERIOR</p>
+  </article>
+    <button id="button-download" class="button-download"> DESCARGAR MEME</button>
+  </section>
+  <section class="Container__aside" id="aside-panel-container">
+    <button class="aside-button" id="aside-button" aria-label="cerrar panel lateral">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <aside id="img__editor">
+      <h2 class="aside-title">IMAGEN</h2>
+    <section class="panel-editor">
+    <article class="input-image">
+      <label class="title-url" for="url">URL</label>
+      <input class="url-image" type="text" name="url" id="url" aria-label="Direccion URL de la imagen">
+    </article>
+    <div class="panel__control">
+        <h3 class="titulo__inputs">FONDO</h3>
+    <div class="panel-control-rows">
+    <div class="panel-back-color panel-control-rows">
+        <input aria-label="Color de fondo de imagen" type="color" id="input-back-color" value="#FFFFFF" aria-label="Color de fondo de imagen">
+        <span id="blend-back-color" aria-hidden="true">#FFFFFF</span>
+    </div>
+    <div class="panel__control__2">
+      <select aria-label="Mezcla color de fondo de la imagen" id="select-back-color" class="panel-control-input">
+        <option value="unset">Ninguno</option>
+        <option value="lighten">Aclarar</option>
+        <option value="darken">Oscurecer</option>
+        <option value="difference">Diferencia</option>
+        <option value="luminosity">Luminosidad</option>
+        <option value="multiply">Multiplicar</option>
+      </select>
+    </div>
+    </div>
+    </div>
+      <article class="aside__inputs">
+            <h3 class="titulo__inputs">FILTROS</h3>
+    <div class="filters-container"><label class="title-filters" for="brightness">Brillo</label><input type="range" name="brightness" id="brightness" min="0" max="1" step="0.1" value="1">
+            </div>
+    <div class="filters-container"><label class="title-filters" for="opacity">Opacidad</label><input type="range" name="opacity" id="opacity" min="0" max="1" step="0.1" value="1">
+            </div>
+    <div class="filters-container"><label class="title-filters" for="contrast">Contraste</label><input type="range" name="contrast" id="contrast" min="100" max="1000" step="1" value="100">
+            </div>
+    <div class="filters-container"><label class="title-filters" for="blur">Desenfoque</label><input type="range" name="blur" id="blur" min="0" max="10" step="0.1" value="0">
+            </div>
+    <div class="filters-container"><label class="title-filters" for="grayscale">Escala de grises</label><input type="range" name="grayscale" id="grayscale" min="0" max="100" step="1" value="0">
+            </div>
+    <div class="filters-container"><label class="title-filters" for="sepia">Sepia</label><input type="range" name="sepia" id="sepia" min="0" max="100" step="1" value="0">
+            </div>
+    <div class="filters-container"><label class="title-filters" for="hue">Hue</label><input type="range" name="hue" id="hue" min="0" max="359" step="1" value="0">
+            </div>
+    <div class="filters-container"><label class="title-filters" for="saturate">Saturado</label><input type="range" name="saturate" id="saturate" min="100" max="1000" step="10" value="100">
+            </div>
+    <div class="filters-container"><label class="title-filters" for="invert">Negativo</label><input type="range" name="invert" id="invert" min="0" max="1" step="0.1" value="0">
+            </div>
+     </article>
+    </section>
+      <button id="reset-button" class="aside-reset-button">Reestablecer filtros</button>
+    </aside>
+    <aside class="display-none" id="text-editor-panel">
+        <h2 class="aside-title" id="aside-title-texto">TEXTO</h2>
+        <section class="aside-section">
+    <article class="aside__inputs">
+      <label class="titulo__inputs" for="top-text">SUPERIOR</label>
+        <textarea type="text" name="top-text" id="top-aside-text" maxlength="50" aria-label="Escribe el texto superior del meme">Escriba aquí el texto superior</textarea>
+    <div class="aside-chekbox image-background-color">
+      <input type="checkbox" name="no-top-text" id="without-top-text">
+      <label class="checkbox-label" for="no-top-text">Sin texto superior</label>
+    </div>
+      </article>
+      <article class="aside__inputs">
+      <label class="titulo__inputs" for="bottom-text">INFERIOR</label>
+        <textarea type="text" name="Texto inferior" id="bottom-aside-text" maxlength="50" aria-label="Escribe el texto inferior del meme">Escriba aquí el texto inferior</textarea>
+    <div class="aside-chekbox image-background-color">
+        <input type="checkbox" name="no-bottom-text" id="without-bottom-text"><label for="no-bottom-text">Sin texto inferior</label></div>
+      </article>
+      <article class="aside__inputs">
+      <label class="titulo__inputs" for="font-type">FUENTE</label>
+        <select name="font-type" id="font-type" aria-label="Selecciona el tipo de fuente">
+        <option value="Yusei Magic">Yusei Magic</option>
+        <option value="Potta One">Potta One</option>
+        <option value="Londrina Solid">Londrina Solid</option>
+        <option value="Hachi Maru Pop">Hachi Maru Pop</option>
+        <option value="Hanalei">Hanalei</option>
+        <option value="Anton">Anton</option>
+        <option value="Pacifico">Pacifico</option>
+        <option value="Permanent Marker">Permanent Marker</option>
+        <option value="verdana">verdana</option></select>
+    <div class="panel-control-rows font-buttons" id="font-buttons-text">
+      <input type="number" name="font-size" id="font-size" min="12" max="80" value="40" aria-label="Tamaño de fuente">
+        <button id="button-text-left" class="align-button" aria-label="Justificar texto a la izquierda"><i class="fas fa-align-left button-icon-text" aria-hidden="true"></i></button>
+        <button id="button-text-center" class="align-button" aria-label="Justificar texto en el centro"><i class="fas fa-align-center button-icon-text" aria-hidden="true"></i></button>
+        <button id="button-text-rigth" class="align-button" aria-label="Justificar texto a la derecha"><i class="fas fa-align-right button-icon-text" aria-hidden="true"></i></button>
+    </div>
+      </article>
+      <article class="aside__inputs">
+    <div class="panel-control-rows">
+    <div class="editor-color">
+      <label class="titulo__inputs" for="font-color">COLOR</label>
+    <div class="aside-inputs-row color-inputs"><input type="color" name="font-color" id="font-color" value="#000000" aria-label="Selecciona color texto">
+      <span id="font-color-text" aria-hidden="true">#000000</span>
+    </div>
+    </div>
+    <div class="editor__color">
+      <label class="titulo__inputs" for="font-back">FONDO</label>
+    <div class="aside-inputs-row color-inputs">
+      <input type="color" name="font-back" id="font-back" value="#ffffff" aria-label="Selecciona color de fondo del texto">
+      <span id="font-back-text" aria-hidden="true">#FFFFFF</span>
+    </div>
+    </div>
+    </div>
+    <div class="aside-chekbox image-background-color">
+      <input type="checkbox" name="font-back" id="without-back-color">
+      <label class="checkbox-label" for="no.-font-back">Fondo transparente</label>
+    </div>
+    </article>
+    <article class="aside__inputs" id="outline-buttons">
+      <label class="titulo__inputs">CONTORNO</label>
+    <div class="aside-inputs-buttons">
+      <button id="no-outline-text" class="button-outline" aria-label="Sin contorno de texto">Ninguno</button>
+      <button id="light-outline-text" class="button-outline" aria-label="Contorno de texto claro">Claro</button>
+      <button id="dark-outline-text" class="button-outline" aria-label="Contorno de texto oscuro">Oscuro</button>
+    </div>
+    </article>
+    <article class="aside__input">
+      <label class="titulo__inputs" for="font-spacing">ESPACIADO</label>
+      <input type="number" id="font-spacing" min="10" max="50" value="35">
+    </article>
+    <article class="aside__input">
+      <label class="titulo__inputs" for="line-height">INTERLINEADO</label>
+    <select class="line-height" id="line-height" aria-label="Interlineado" value="1.2">
+     <option value="0.8">0.8</option>
+     <option value="1">1</option>
+     <option value="1.2">1.2</option>
+     <option value="1.5">1.5</option>
+     <option value="2">2</option>
+     <option value="2.5">2.5</option>
+  </select>
+  </article>
+  </section>
+    </aside>
+  </section>
+</main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw=="crossorigin="anonymous"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

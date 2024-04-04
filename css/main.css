@@ -1,0 +1,44 @@
+
+:root{
+  --background-header:#a3a3a3;
+  --colorAside: #686868;
+  --color-SecMeme: #E3E3E3;
+  --color-texto-sup: #eb9dd8;
+  --color-btn-aside:#ffffff;
+  --color-btn-hover:#eb9dd8;
+  --Color-mainFont: #302f2f;
+  --second-fontColor: #eb9dd8;
+  --Fuente-Principal:'Kenarose', sans-serif;
+  --secondFont: "Oswald", sans-serif;
+  --borderRadius: 15px;
+}
+
+body.dark-mode{
+  --colorHeader:#260638;
+  --colorAside:#260638;
+  --color-SecMeme: #000000;
+  --color-texto-sup:#202020;
+  --color-btn-aside: #2e2d2e;
+  --color-btn-hover: #3e264e;
+  --Color-mainFont: #e7ebeb;
+  --Fuente-Principal:'Kenarose', sans-serif;
+  --secondFont:"Oswald", sans-serif;
+  --borderRadius: 15px;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  font-family: var(--mainFont);
+  height: 100vh;
+  width: auto;
+}
+
+button{
+  cursor: pointer;
+}
+
+.display-none{
+ display: none;
+} 
+
