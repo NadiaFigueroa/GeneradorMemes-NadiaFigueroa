@@ -1,0 +1,1 @@
+Con este generador de memes, podras agregar una imagen mediante su url, agregarle texto, cambiar su brillo, opacidad y contraste. Asi como tambien editar los colores de la imagen con escala de grises, sepia entre otros filtros. Tambien podras descargar tu meme y asi compartirlo donde gustes.
